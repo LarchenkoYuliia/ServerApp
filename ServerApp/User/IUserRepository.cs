@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServerApp
 {
@@ -51,14 +48,13 @@ namespace ServerApp
         /// <summary>
         /// Изменить данные пользователя
         /// </summary>
-        /// <param name="user"></param>
-        void Update(User user);
+        /// <param name="login"></param>
+        bool UpdatePassword(string login);
 
         /// <summary>
         /// Удалить аккаунт
         /// </summary>
         /// <param name="login"></param>
         void Delete(string login);
-
     }
 }
