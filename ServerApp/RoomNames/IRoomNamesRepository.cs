@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 
-namespace ServerApp
+namespace ServerApp.RoomNames
 {
     interface IRoomNamesRepository
     {
         /// <summary>
         /// Получить список комнат пользователя
         /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
+        /// <param name="login">Логин пользователя</param>
+        /// <returns>Список названий комнат</returns>
         List<RoomNames> GetRooms(string login);
     }
 }
