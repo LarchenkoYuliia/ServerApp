@@ -3,10 +3,15 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace ServerApp
+namespace ServerApp.RoomNames
 {
     public class RoomNamesRepository : IRoomNamesRepository
     {
+        /// <summary>
+        /// Получить список комнат пользователя
+        /// </summary>
+        /// <param name="login">Логин пользователя</param>
+        /// <returns>Список названий комнат</returns>
         public List<RoomNames> GetRooms(string login)
         {
             //todo: базу переделать так, чтобы добавить таблицу-справочник с названиями комнат 
