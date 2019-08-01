@@ -1,4 +1,6 @@
-﻿namespace ServerApp
+﻿using System;
+
+namespace ServerApp.Device
 {
     /// <summary>
     /// Устройство
@@ -14,5 +16,15 @@
         /// Название устройства
         /// </summary>
         public string DeviceName { get; set; }
+
+        /// <summary>
+        /// Дата истечения гарантии устройства
+        /// </summary>
+        public DateTime WarrantyExpirationDate { get; set; }
+
+        /// <summary>
+        /// Модель устройства
+        /// </summary>
+        public string Model { get; set; }
     }
 }

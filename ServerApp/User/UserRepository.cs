@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 
 namespace ServerApp
 {
     public class UserRepository : IUserRepository
     {
+        /// <summary>
+        /// Проверить зарегестрирован ли пользователь
+        /// </summary>
+        /// <param name="login">Логин</param>
+        /// <param name="password">Пароль</param>
         public bool CheckUser(string login, string password)
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -32,6 +35,9 @@ namespace ServerApp
             }
         }
 
+        /// <summary>
+        /// Получить всех пользователей
+        /// </summary>
         public DataTable GetAllUsers()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -48,6 +54,11 @@ namespace ServerApp
             }
         }
 
+        /// <summary>
+        /// Получить данные о пользователе по идентификатору
+        /// </summary>
+        /// <param name="idUser">Идентификатор</param>
+        /// <returns>Данные о пользователе</returns>
         public User GetUser(int idUser)
         {
             using (SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -76,6 +87,11 @@ namespace ServerApp
             }
         }
 
+        /// <summary>
+        /// Получить данные о пользователе по логину
+        /// </summary>
+        /// <param name="login">Логин</param>
+        /// <returns>Данные о пользователе</returns>
         public User GetUser(string login)
         {
             using (SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -104,6 +120,11 @@ namespace ServerApp
             }
         }
 
+        /// <summary>
+        /// Получить имя пользователя
+        /// </summary>
+        /// <param name="login">Логин</param>
+        /// <returns>Имя пользователя</returns>
         public string GetUserName(string login)
         {
             var userName = String.Empty;
@@ -124,6 +145,10 @@ namespace ServerApp
             return userName;
         }
 
+        /// <summary>
+        /// Добавить пользователя (для регистрации)
+        /// </summary>
+        /// <param name="user"></param>
         public bool AddUser(User user)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -144,6 +169,10 @@ namespace ServerApp
             }
         }
 
+        /// <summary>
+        /// Изменить данные пользователя
+        /// </summary>
+        /// <param name="login"></param>
         public bool UpdatePassword(string login)
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -169,6 +198,10 @@ namespace ServerApp
             }
         }
 
+        /// <summary>
+        /// Удалить аккаунт
+        /// </summary>
+        /// <param name="login"></param>
         public void Delete(string login)
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
