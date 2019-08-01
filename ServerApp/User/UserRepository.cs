@@ -38,7 +38,7 @@ namespace ServerApp
         /// <summary>
         /// Получить всех пользователей
         /// </summary>
-        public DataTable GetAllUsers()
+        public DataTable Retrieve()
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
@@ -59,7 +59,7 @@ namespace ServerApp
         /// </summary>
         /// <param name="idUser">Идентификатор</param>
         /// <returns>Данные о пользователе</returns>
-        public User GetUser(int idUser)
+        public User Retrieve(int idUser)
         {
             using (SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
@@ -92,7 +92,7 @@ namespace ServerApp
         /// </summary>
         /// <param name="login">Логин</param>
         /// <returns>Данные о пользователе</returns>
-        public User GetUser(string login)
+        public User Retrieve(string login)
         {
             using (SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
@@ -125,7 +125,7 @@ namespace ServerApp
         /// </summary>
         /// <param name="login">Логин</param>
         /// <returns>Имя пользователя</returns>
-        public string GetUserName(string login)
+        public string RetrieveName(string login)
         {
             var userName = String.Empty;
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -149,7 +149,7 @@ namespace ServerApp
         /// Добавить пользователя (для регистрации)
         /// </summary>
         /// <param name="user"></param>
-        public bool AddUser(User user)
+        public bool Create(User user)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {

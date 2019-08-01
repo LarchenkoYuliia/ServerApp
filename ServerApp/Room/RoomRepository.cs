@@ -11,7 +11,7 @@ namespace ServerApp.Room
         /// </summary>
         /// <param name="login">Логин пользователя</param>
         /// <returns>Список комнат</returns>
-        public List<Room> GetUserRooms(string login)
+        public List<Room> Retrieve(string login)
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {

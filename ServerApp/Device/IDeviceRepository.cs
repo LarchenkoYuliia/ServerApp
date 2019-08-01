@@ -9,13 +9,13 @@ namespace ServerApp.Device
         /// </summary>
         /// <param name="idRoomName">Идентификатор комнаты</param>
         /// <returns>Список устройств</returns>
-        List<Device> GetDevices(int idRoomName);
+        List<Device> Retrieve(int idRoomName);
 
         /// <summary>
         /// Получить информацию по устройству
         /// </summary>
         /// <param name="deviceId">Идентификатор устройства</param>
         /// <returns>Устройство</returns>
-        Device GetDeviceInfo(int deviceId);
+        Device RetrieveInfo(int deviceId);
     }
 }

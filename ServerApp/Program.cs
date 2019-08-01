@@ -10,8 +10,6 @@ namespace ServerApp
     {
         static void Main(string[] args)
         {
-            int temp = 7;
-            temp += temp + 4;
         }
     }
 }
