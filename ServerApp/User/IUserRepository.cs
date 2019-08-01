@@ -11,21 +11,21 @@ namespace ServerApp
         /// </summary>
         /// <param name="idUser">Идентификатор</param>
         /// <returns>Данные о пользователе</returns>
-        User GetUser(int idUser);
+        User Retrieve(int idUser);
 
         /// <summary>
         /// Получить данные о пользователе по логину
         /// </summary>
         /// <param name="login">Логин</param>
         /// <returns>Данные о пользователе</returns>
-        User GetUser(string login);
+        User Retrieve(string login);
 
         /// <summary>
         /// Получить имя пользователя
         /// </summary>
         /// <param name="login">Логин</param>
         /// <returns>Имя пользователя</returns>
-        string GetUserName(string login);
+        string RetrieveName(string login);
 
         /// <summary>
         /// Проверить зарегестрирован ли пользователь
@@ -37,13 +37,13 @@ namespace ServerApp
         /// <summary>
         /// Получить всех пользователей
         /// </summary>
-        DataTable GetAllUsers();
+        DataTable Retrieve();
 
         /// <summary>
         /// Добавить пользователя (для регистрации)
         /// </summary>
         /// <param name="user"></param>
-        bool AddUser(User user);
+        bool Create(User user);
 
         /// <summary>
         /// Изменить данные пользователя

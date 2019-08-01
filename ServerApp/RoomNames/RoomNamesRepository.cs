@@ -12,7 +12,7 @@ namespace ServerApp.RoomNames
         /// </summary>
         /// <param name="login">Логин пользователя</param>
         /// <returns>Список названий комнат</returns>
-        public List<RoomNames> GetRooms(string login)
+        public List<RoomNames> Retrieve(string login)
         {
             //todo: базу переделать так, чтобы добавить таблицу-справочник с названиями комнат 
             //и возвращать именно список названий комнат

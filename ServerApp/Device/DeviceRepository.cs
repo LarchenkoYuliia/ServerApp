@@ -12,7 +12,7 @@ namespace ServerApp.Device
         /// </summary>
         /// <param name="deviceId">Идентификатор устройства</param>
         /// <returns>Устройство</returns>
-        public Device GetDeviceInfo(int deviceId)
+        public Device RetrieveInfo(int deviceId)
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
@@ -41,7 +41,7 @@ namespace ServerApp.Device
         /// </summary>
         /// <param name="idRoomName">Идентификатор комнаты</param>
         /// <returns>Список устройств</returns>
-        public List<Device> GetDevices(int idRoomName)
+        public List<Device> Retrieve(int idRoomName)
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
