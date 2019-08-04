@@ -10,5 +10,11 @@ namespace ServerApp.RoomNames
         /// <param name="login">Логин пользователя</param>
         /// <returns>Список названий комнат</returns>
         List<RoomNames> Retrieve(string login);
+
+        /// <summary>
+        /// Получить списаок всех комнат
+        /// </summary>
+        /// <returns>Список названий комнат</returns>
+        List<RoomNames> Retrieve();
     }
 }
