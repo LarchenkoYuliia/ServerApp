@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceType\DeviceType.cs" />
+    <Compile Include="DeviceType\DeviceTypeRepository.cs" />
+    <Compile Include="DeviceType\IDeviceTypeRepository.cs" />
     <Compile Include="Device\Device.cs" />
     <Compile Include="Device\DeviceRepository.cs" />
     <Compile Include="Device\IDeviceRepository.cs" />

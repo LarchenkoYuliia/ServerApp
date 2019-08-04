@@ -38,5 +38,31 @@ namespace ServerApp.RoomNames
                 }
             }
         }
+
+        public List<RoomNames> Retrieve()
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                var sqlRequest =
+                    string.Format(@"select roomname from roomnames");
+                using (var cmd = new SqlCommand(sqlRequest, connection))
+                {
+                    connection.Open();
+                    var sqlDataReader = cmd.ExecuteReader();
+                    var roomNameList = new List<RoomNames>();
+                    while (sqlDataReader.Read())
+                    {
+                        var roomName = new RoomNames
+                        {
+                            RoomNameId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("roomnameid")),
+                            RoomName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("roomname"))
+                        };
+                        roomNameList.Add(roomName);
+                    }
+
+                    return roomNameList;
+                }
+            }
+        }
     }
 }
