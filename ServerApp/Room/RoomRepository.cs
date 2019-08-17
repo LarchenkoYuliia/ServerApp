@@ -16,7 +16,7 @@ namespace ServerApp.Room
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var sqlRequest =
-                    string.Format(@"select * from rooms join users on rooms.userid = users.userid where users.login = '{0}'", login);
+                    string.Format(@"select * from rooms join users on rooms.userid = users.id where users.login = '{0}'", login);
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
                     connection.Open();
@@ -26,7 +26,7 @@ namespace ServerApp.Room
                     {
                         var room = new Room
                         {
-                            RoomId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("roomid")),
+                            RoomId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("id")),
                             UserId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("userid")),
                             DeviceId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("deviceid")),
                             RoomNameId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("roomnameid")),

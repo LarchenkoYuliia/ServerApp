@@ -2,11 +2,11 @@
 
 namespace ServerApp.Helper
 {
-    public class ManageHelper
+    public class UserHelper
     {
         private IUserRepository _userRepository;
 
-        public ManageHelper()
+        public UserHelper()
         {
             _userRepository = new UserRepository();
         }

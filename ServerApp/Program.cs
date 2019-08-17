@@ -11,38 +11,33 @@ namespace ServerApp
     {
         static void Main(string[] args)
         {
-            ManageHelper helper = new ManageHelper();
-            var res = helper.CheckUser("admin", "123");
-            var rr = helper.Retrieve(1);
-            var ll = helper.Retrieve();
-            var kk = helper.Retrieve("admin");
-            var pp = helper.RetrieveName("admin");
-            var oo = helper.Create(new User
+            var helper = new DeviceHelper();
+            var ll =  helper.Retrieve(1);
+            var kk = helper.RetrieveInfo(1);
+
+            foreach(var r in ll)
             {
-                UserID = 2,
-                UserLogin = "ya",
-                UserPassword = "321",
-                UserName = "juli",
-                UserSurname = "chumaklove"
-            });
-            for(int i = 0; i<15;i++)
-            {
-                Console.WriteLine(res);
-                Console.Write(rr.UserSurname);
-                Console.Write(rr.UserName);
-                Console.Write(rr.UserID);
-                Console.Write(rr.UserLogin);
-                Console.WriteLine(rr.UserPassword);
-                Console.WriteLine(ll);
-                Console.Write(kk.UserID.ToString());
-                Console.Write(kk.UserName);
-                Console.Write(kk.UserSurname);
-                Console.Write(kk.UserLogin);
-                Console.WriteLine(kk.UserPassword);
-                Console.WriteLine(pp);
-                Console.WriteLine(oo);
+                Console.WriteLine(r.DeviceId);
+                Console.WriteLine(r.DeviceName);
+                Console.WriteLine(r.DeviceTypeId);
             }
-           
+
+            Console.WriteLine();
+            Console.WriteLine(kk.DeviceId);
+            Console.WriteLine(kk.DeviceName);
+            Console.WriteLine(kk.DeviceTypeId);
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            //var helper2 = new DeviceTypeHelper();
+            //var ttt = helper2.Retrieve();
+            //foreach(var t in ttt)
+            //{
+            //    Console.WriteLine(t.DeviceTypeId);
+            //    Console.WriteLine(t.DeviceTypeName);
+            //}
         }
     }
 }

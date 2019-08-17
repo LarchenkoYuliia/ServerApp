@@ -11,7 +11,7 @@ namespace ServerApp.DeviceType
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
-                var sqlRequest = String.Format(@"select * from devicetypes");
+                var sqlRequest = String.Format(@"select ID, TYPENAME from DEVICETYPES");
                 var deviceTypeList = new List<DeviceType>();
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
@@ -20,8 +20,8 @@ namespace ServerApp.DeviceType
                     {
                         var deviceType = new DeviceType
                         {
-                            DeviceTypeId = dataReader.GetFieldValue<int>(dataReader.GetOrdinal("devicetypeid")),
-                            DeviceTypeName = dataReader.GetFieldValue<string>(dataReader.GetOrdinal("devicetypename"))
+                            DeviceTypeId = dataReader.GetFieldValue<int>(dataReader.GetOrdinal("ID")),
+                            DeviceTypeName = dataReader.GetFieldValue<string>(dataReader.GetOrdinal("TYPENAME"))
                         };
                         deviceTypeList.Add(deviceType);
                     }
