@@ -42,6 +42,7 @@
     <Reference Include="System.Net.NetworkInformation, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.NetworkInformation.4.3.0\lib\net46\System.Net.NetworkInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,11 +60,11 @@
     <Compile Include="Device\Device.cs" />
     <Compile Include="Device\DeviceRepository.cs" />
     <Compile Include="Device\IDeviceRepository.cs" />
-    <Compile Include="Helper\DeviceHelper.cs" />
-    <Compile Include="Helper\DeviceTypeHelper.cs" />
-    <Compile Include="Helper\RoomHelper.cs" />
-    <Compile Include="Helper\RoomNameHelper.cs" />
-    <Compile Include="Helper\UserHelper.cs" />
+    <Compile Include="Helpers\DeviceHelper.cs" />
+    <Compile Include="Helpers\DeviceTypeHelper.cs" />
+    <Compile Include="Helpers\RoomHelper.cs" />
+    <Compile Include="Helpers\RoomNameHelper.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="RoomNames\IRoomNamesRepository.cs" />
     <Compile Include="RoomNames\RoomNames.cs" />
     <Compile Include="RoomNames\RoomNamesRepository.cs" />
