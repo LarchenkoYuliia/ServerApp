@@ -11,25 +11,26 @@ namespace ServerApp
     {
         static void Main(string[] args)
         {
-            var helper = new DeviceHelper();
-            var ll =  helper.Retrieve(1);
-            var kk = helper.RetrieveInfo(1);
+            var helper = new RoomNameHelper();
+            var ll = helper.Retrieve();
+            var tt = helper.Retrieve("admin");
 
             foreach(var r in ll)
             {
-                Console.WriteLine(r.DeviceId);
-                Console.WriteLine(r.DeviceName);
-                Console.WriteLine(r.DeviceTypeId);
+                Console.WriteLine(r.RoomNameId);
+                Console.WriteLine(r.RoomName);
             }
-
-            Console.WriteLine();
-            Console.WriteLine(kk.DeviceId);
-            Console.WriteLine(kk.DeviceName);
-            Console.WriteLine(kk.DeviceTypeId);
+            
 
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
+
+            foreach (var r in tt)
+            {
+                Console.WriteLine(r.RoomNameId);
+                Console.WriteLine(r.RoomName);
+            }
 
             //var helper2 = new DeviceTypeHelper();
             //var ttt = helper2.Retrieve();

@@ -13,27 +13,25 @@ namespace ServerApp.RoomNames
         /// <returns>Список названий комнат</returns>
         public List<RoomNames> Retrieve(string login)
         {
-            //todo: базу переделать так, чтобы добавить таблицу-справочник с названиями комнат 
-            //и возвращать именно список названий комнат
-
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var sqlRequest =
-                    string.Format(@"select roomName from rooms join users on users.id = rooms.userid join roomnames on rooms.id = roomnames.id WHERE login = '{0}'", login);
+                    string.Format(@"select * from rooms join users on users.id = rooms.userid join roomnames on rooms.id = roomnames.id WHERE login = '{0}'", login);
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
                     connection.Open();
                     var sqlDataReader = cmd.ExecuteReader();
-                    var rooms = new List<RoomNames>();
+                    var roomNames = new List<RoomNames>();
                     while (sqlDataReader.Read())
                     {
-                        //var room = new Room
-                        //{
-
-                        //}
+                        var roomName = new RoomNames
+                        {
+                            RoomNameId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("ID")),
+                            RoomName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("ROOMNAME"))
+                        };
                     }
 
-                    return rooms;
+                    return roomNames;
                 }
             }
         }
@@ -43,7 +41,7 @@ namespace ServerApp.RoomNames
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var sqlRequest =
-                    string.Format(@"select roomname from roomnames");
+                    string.Format(@"select * from roomnames");
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
                     connection.Open();

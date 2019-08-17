@@ -12,7 +12,7 @@ namespace ServerApp.RoomNames
         List<RoomNames> Retrieve(string login);
 
         /// <summary>
-        /// Получить списаок всех комнат
+        /// Получить список всех комнат
         /// </summary>
         /// <returns>Список названий комнат</returns>
         List<RoomNames> Retrieve();
