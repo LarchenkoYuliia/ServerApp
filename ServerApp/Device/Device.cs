@@ -26,5 +26,10 @@ namespace ServerApp.Device
         /// Модель устройства
         /// </summary>
         public string Model { get; set; }
+
+        /// <summary>
+        /// Тип устройства
+        /// </summary>
+        public string DeviceTypeId { get; set; }
     }
 }
