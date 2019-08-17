@@ -16,7 +16,7 @@ namespace ServerApp
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
-                var sqlRequest = String.Format(@"select top 1 userid from users where login = '{0}' and password = '{1}'", 
+                var sqlRequest = String.Format(@"select top 1 ID from USERS where LOGIN = '{0}' and PASSWORD = '{1}'", 
                     login, password);
 
                 using (var cmd = new SqlCommand(sqlRequest, connection))
@@ -42,7 +42,7 @@ namespace ServerApp
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
-                var sqlRequest = @"SELECT * FROM users";
+                var sqlRequest = @"SELECT * FROM USERS";
 
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
@@ -64,7 +64,7 @@ namespace ServerApp
             using (SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var command =
-                    string.Format(@"select * from users where userid = '{0}'", idUser);
+                    string.Format(@"select * from USERS where ID = '{0}'", idUser);
                 var user = new User();
                 using (var cmd = new SqlCommand(command, connectionString))
                 {
@@ -75,11 +75,11 @@ namespace ServerApp
                     {
                         user = new User
                         {
-                            UserID = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("UserId")),
-                            UserLogin = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("Login")),
-                            UserName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("UserName")),
-                            UserPassword = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("Password")),
-                            UserSurname = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("UserSurname"))
+                            UserID = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("ID")),
+                            UserLogin = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("LOGIN")),
+                            UserName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("NAME")),
+                            UserPassword = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("PASSWORD")),
+                            UserSurname = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("SURNAME"))
                         };
                     }
                 }
@@ -97,7 +97,7 @@ namespace ServerApp
             using (SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var command =
-                    string.Format(@"select * from users where login = '{0}'", login);
+                    string.Format(@"select * from USERS where LOGIN = '{0}'", login);
                 var user = new User();
                 using (var cmd = new SqlCommand(command, connectionString))
                 {
@@ -108,11 +108,11 @@ namespace ServerApp
                     {
                         user = new User
                         {
-                            UserID = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("UserId")),
-                            UserLogin = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("Login")),
-                            UserName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("UserName")),
-                            UserPassword = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("Password")),
-                            UserSurname = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("UserSurname"))
+                            UserID = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("ID")),
+                            UserLogin = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("LOGIN")),
+                            UserName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("NAME")),
+                            UserPassword = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("PASSWORD")),
+                            UserSurname = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("SURNAME"))
                         };
                     }
                 }
@@ -130,7 +130,7 @@ namespace ServerApp
             var userName = String.Empty;
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
-                var sqlRequest = String.Format(@"SELECT username FROM users where login = {0}", login);
+                var sqlRequest = String.Format(@"SELECT NAME FROM USERS where LOGIN = '{0}'", login);
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
                     connection.Open();
@@ -138,7 +138,7 @@ namespace ServerApp
 
                     while (sqlDataReader.Read())
                     {
-                        userName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("username"));
+                        userName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("NAME"));
                     }
                 }
             }
@@ -155,7 +155,7 @@ namespace ServerApp
             {
                 var success = false;
                 var addUser =
-                    string.Format(@"INSERT INTO users(username, usersurname, login, password) VALUES('{0}','{1}','{2}', {3})",
+                    string.Format(@"INSERT INTO USERS(ID, NAME, SURNAME, LOGIN, PASSWORD) VALUES(3,'{0}','{1}','{2}', '{3}')",
                     user.UserName, user.UserSurname, user.UserLogin, user.UserPassword);
 
                 using (var cmd = new SqlCommand(addUser, conn))
@@ -183,7 +183,7 @@ namespace ServerApp
 
 
                 var updateUser =
-                    string.Format(@"UPDATE users SET Password = '{0}' where login = {0}", login);
+                    string.Format(@"UPDATE USERS SET PASSWORD = '{0}' where LOGIN = '{0}'", login);
 
                 using (var cmd = new SqlCommand(updateUser, connection))
                 {
@@ -207,7 +207,7 @@ namespace ServerApp
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var deleteUser =
-                    string.Format(@"DELETE FROM users WHERE Login = '{0}'", login);
+                    string.Format(@"DELETE FROM USERS WHERE LOGIN = '{0}'", login);
                 using (var cmd = new SqlCommand(deleteUser, connection))
                 {
                     connection.Open();

@@ -6,7 +6,7 @@ namespace ServerApp.Helper
     {
         private IUserRepository _userRepository;
 
-        ManageHelper()
+        public ManageHelper()
         {
             _userRepository = new UserRepository();
         }
