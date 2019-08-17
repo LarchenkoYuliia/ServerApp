@@ -19,7 +19,7 @@ namespace ServerApp.RoomNames
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 var sqlRequest =
-                    string.Format(@"select roomNmame from rooms join users on users.userid = rooms.userid join roomnames on rooms.roomnamesid = roomnames.roomnamesid WHERE login = '{0}'", login);
+                    string.Format(@"select roomName from rooms join users on users.id = rooms.userid join roomnames on rooms.id = roomnames.id WHERE login = '{0}'", login);
                 using (var cmd = new SqlCommand(sqlRequest, connection))
                 {
                     connection.Open();
@@ -53,7 +53,7 @@ namespace ServerApp.RoomNames
                     {
                         var roomName = new RoomNames
                         {
-                            RoomNameId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("roomnameid")),
+                            RoomNameId = sqlDataReader.GetFieldValue<int>(sqlDataReader.GetOrdinal("id")),
                             RoomName = sqlDataReader.GetFieldValue<string>(sqlDataReader.GetOrdinal("roomname"))
                         };
                         roomNameList.Add(roomName);

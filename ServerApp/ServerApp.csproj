@@ -59,7 +59,11 @@
     <Compile Include="Device\Device.cs" />
     <Compile Include="Device\DeviceRepository.cs" />
     <Compile Include="Device\IDeviceRepository.cs" />
-    <Compile Include="Helper\ManageHelper.cs" />
+    <Compile Include="Helper\DeviceHelper.cs" />
+    <Compile Include="Helper\DeviceTypeHelper.cs" />
+    <Compile Include="Helper\RoomHelper.cs" />
+    <Compile Include="Helper\RoomNameHelper.cs" />
+    <Compile Include="Helper\UserHelper.cs" />
     <Compile Include="RoomNames\IRoomNamesRepository.cs" />
     <Compile Include="RoomNames\RoomNames.cs" />
     <Compile Include="RoomNames\RoomNamesRepository.cs" />
