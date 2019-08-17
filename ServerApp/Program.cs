@@ -10,6 +10,10 @@ namespace ServerApp
     {
         static void Main(string[] args)
         {
+            for(int i = 0; i < 15; i++)
+            {
+                Console.WriteLine("123");
+            }
         }
     }
 }
